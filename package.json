@@ -1,0 +1,137 @@
+{
+  "name": "terminal-music-notifier",
+  "displayName": "Terminal Music Notifier",
+  "description": "Play audio notifications when terminal commands succeed or fail. Ships with built-in sounds and supports custom audio files.",
+  "version": "1.0.0",
+  "publisher": "arihant-kothari",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.93.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "terminal",
+    "sound",
+    "notification",
+    "audio",
+    "music",
+    "error",
+    "success",
+    "alert"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e2e",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arihant4521k/terminal-music-notifier"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Terminal Music Notifier",
+      "properties": {
+        "terminalMusicNotifier.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable terminal sound notifications."
+        },
+        "terminalMusicNotifier.successSound": {
+          "type": "string",
+          "default": "default",
+          "enum": [
+            "default",
+            "custom",
+            "none"
+          ],
+          "enumDescriptions": [
+            "Use the built-in GTA San Andreas success sound",
+            "Use a custom audio file",
+            "Disable success sound"
+          ],
+          "description": "Sound to play when a terminal command succeeds (exit code 0)."
+        },
+        "terminalMusicNotifier.errorSound": {
+          "type": "string",
+          "default": "default",
+          "enum": [
+            "default",
+            "custom",
+            "none"
+          ],
+          "enumDescriptions": [
+            "Use the built-in FAAAH error sound",
+            "Use a custom audio file",
+            "Disable error sound"
+          ],
+          "description": "Sound to play when a terminal command fails (non-zero exit code)."
+        },
+        "terminalMusicNotifier.customSuccessSoundPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to a custom success sound file (.mp3, .wav, .ogg, .flac, .aac). Max duration: 5 seconds."
+        },
+        "terminalMusicNotifier.customErrorSoundPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to a custom error sound file (.mp3, .wav, .ogg, .flac, .aac). Max duration: 5 seconds."
+        },
+        "terminalMusicNotifier.volume": {
+          "type": "number",
+          "default": 0.8,
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Volume level for notification sounds (0.0 to 1.0)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "terminalMusicNotifier.enable",
+        "title": "Terminal Music Notifier: Enable"
+      },
+      {
+        "command": "terminalMusicNotifier.disable",
+        "title": "Terminal Music Notifier: Disable"
+      },
+      {
+        "command": "terminalMusicNotifier.selectSuccessSound",
+        "title": "Terminal Music Notifier: Select Custom Success Sound"
+      },
+      {
+        "command": "terminalMusicNotifier.selectErrorSound",
+        "title": "Terminal Music Notifier: Select Custom Error Sound"
+      },
+      {
+        "command": "terminalMusicNotifier.resetDefaults",
+        "title": "Terminal Music Notifier: Reset to Default Sounds"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.93.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^3.0.0"
+  },
+  "dependencies": {
+    "sound-play": "^1.1.0",
+    "mp3-duration": "^1.1.0"
+  }
+}
