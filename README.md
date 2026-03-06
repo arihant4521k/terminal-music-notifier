@@ -59,7 +59,8 @@ Add these to your `settings.json`, or use the Settings UI:
   "terminalMusicNotifier.errorSound": "default",
   "terminalMusicNotifier.customSuccessSoundPath": "",
   "terminalMusicNotifier.customErrorSoundPath": "",
-  "terminalMusicNotifier.volume": 0.8
+  "terminalMusicNotifier.volume": 0.8,
+  "terminal.integrated.shellIntegration.enabled": true
 }
 ```
 
