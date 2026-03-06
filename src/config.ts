@@ -65,7 +65,7 @@ export class Config {
             return customPath || undefined;
         }
         // default
-        return vscode.Uri.joinPath(this.extensionUri, 'media', 'success.wav').fsPath;
+        return vscode.Uri.joinPath(this.extensionUri, 'media', 'success.mp3').fsPath;
     }
 
     /**
@@ -82,7 +82,7 @@ export class Config {
             return customPath || undefined;
         }
         // default
-        return vscode.Uri.joinPath(this.extensionUri, 'media', 'error.wav').fsPath;
+        return vscode.Uri.joinPath(this.extensionUri, 'media', 'error.mp3').fsPath;
     }
 
     /** Update a setting value */
