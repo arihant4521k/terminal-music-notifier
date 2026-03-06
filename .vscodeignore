@@ -7,4 +7,9 @@ tsconfig.json
 **/*.map
 **/*.ts
 !media/**
-node_modules/**
+node_modules/.package-lock.json
+node_modules/@types/**
+node_modules/@typescript-eslint/**
+node_modules/@vscode/**
+node_modules/eslint/**
+node_modules/typescript/**
